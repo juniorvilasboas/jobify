@@ -1,0 +1,30 @@
+<%- include('header') %>
+    <h2>
+        Admin Categorias:
+        <a href="/admin/categorias/nova">Nova categoria</a>
+    </h2>
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Opções</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% categorias.forEach( categoria => { %>
+                    <tr>
+                        <th scope="row"><%= categoria.id %></th>
+                        <td><%= categoria.categoria %></td>
+                        <td>
+                            <a href="/admin/categorias/editar/<%= categoria.id %>">Editar</a>
+                            <a href="/admin/categorias/delete/<%= categoria.id %>">Excluir</a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        </ul>
+    </div>
+<%- include('footer') %>

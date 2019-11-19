@@ -1,0 +1,57 @@
+html, body {
+    overflow: hidden;
+    max-height: 100%;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+a {
+    text-decoration: none;
+}
+h1 {
+    text-align: center;
+}
+h2 {
+    background-color: c4c4c4;
+    font-size: 24px;
+    padding: 10px;
+}
+h3 {
+    font-size: 24px;
+}
+p {
+    text-align: center;
+}
+ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-areas: "barra" "content" "footer";
+}
+
+.barra {
+    background-color: blue;
+}
+
+.content {
+    grid-area: content;
+}
+
+.footer {
+    align-items: center;
+    bottom: 0;
+    display: flex;
+    grid-area: footer;
+    height: 30px;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+}
+
+.footer p {
+    margin: 0;
+}

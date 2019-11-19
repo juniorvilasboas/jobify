@@ -1,0 +1,17 @@
+<%- include('header') %>
+    <h2>
+        Admin Categorias:
+        <a href="/admin/categorias">Categorias</a>
+    </h2>
+    <div>
+        <form method="POST">
+            <div class="form-group">
+                <label for="categoria">Categoria</label>
+                <input type="text" class="form-control" id="categoria" placeholder="Titulo da categoria" name="categoria">
+            </div>
+            <div class="from-group">
+                <button class="btn btn-primary">Salvar categoria</button>
+            </div>
+        </form>
+    </div>
+<%- include('footer') %>
