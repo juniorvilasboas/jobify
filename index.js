@@ -1,7 +1,7 @@
 const db = require('knex')({
     client: 'mysql2',
     connection: {
-        host:   'files.000webhost.com',
+        host:   'database.000webhost.com',
         user:   'serve-teste',
         password: '220782@jr#',
         database: 'id12030384_jobify'
