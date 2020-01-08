@@ -24,6 +24,5 @@ const login = db => async(email, password) => {
 }
 
 module.exports = {
-    initialUser,
     login
 }
