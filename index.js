@@ -15,6 +15,7 @@ db.on('query', query => {
 const port = process.env.PORT || 3000
 
 const app = require('./app')(db)
+const user = require('./models/user')
 
 app.listen(port, (err) => {
     if(err) {

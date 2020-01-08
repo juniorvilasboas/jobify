@@ -3,6 +3,14 @@ const init = db => {
     const category = require('./categories')
     const vacancie = require('./vacancies')
     
+    router.use((req, res, next) => {
+        if (req.session.user) {
+            next()
+        } else {
+            res.redirect('/login')
+        }
+    })
+
     router.get('/', (req, res) => {
         res.render('admin/home')
     })
