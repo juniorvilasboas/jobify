@@ -19,7 +19,8 @@
     "body-parser": "^1.19.0",
     "ejs": "^2.7.3",
     "express": "^4.17.1",
-    "sqlite": "^3.0.3"
+    "knex": "^0.20.7",
+    "mysql2": "^2.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"

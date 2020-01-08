@@ -1,4 +1,4 @@
-const init = dbConnection => {
+const init = db => {
     const express = require('express')
     const path = require('path')
     const bodyParser = require('body-parser')
@@ -20,7 +20,7 @@ const init = dbConnection => {
     
     const routes = require('./routes/index')
     
-    app.use(routes(dbConnection))
+    app.use(routes(db))
 
     return app
 }

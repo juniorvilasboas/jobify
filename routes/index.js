@@ -1,11 +1,11 @@
-const init = dbConnection => {
+const init = db => {
     const router = require('express').Router()
 
-    const admin = require('./admin')
+    const admin = require('./admin/index')
     const site = require('./site')
     
-    router.use('/', site(dbConnection))
-    router.use('/admin', admin(dbConnection))
+    router.use('/', site(db))
+    router.use('/admin', admin(db))
 
     return router
 }

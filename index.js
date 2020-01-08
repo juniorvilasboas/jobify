@@ -1,24 +1,20 @@
-const sqlite = require('sqlite')
+const db = require('knex')({
+    client: 'mysql2',
+    connection: {
+        host:   '127.0.0.1',
+        user:   'root',
+        password: '',
+        database: 'jobify'
+    }
+})
 
-const path = require('path')
+db.on('query', query => {
+    console.log('SQL: '+query.sql)
+})
+
 const port = process.env.PORT || 3000
-const dbConnection = sqlite.open(path.resolve(__dirname, 'banco.sqlite'), { Promise })
 
-const app = require('./app')(dbConnection)
-
-const init = async() => {
-    const db = await dbConnection
-    await db.run('create table if not exists categorias(id INTEGER PRIMARY KEY, categoria TEXT);')
-    await db.run('create table if not exists vagas(id INTEGER PRIMARY KEY, categoria INTEGER, titulo TEXT, descricao TEXT);')
-    const categoria = 1
-    const titulo = "Fullstack Developer (remote)"
-    const descricao = "Vaga para fullstack developer que fez o Fullstack Lab"
-    //await db.run(`insert into categorias(categoria) values('${categoria}')`)
-    await db.run(`insert into vagas(categoria, titulo, descricao)
-                    values('${categoria}', '${titulo}', '${descricao}')`)
-}
-
-//init()
+const app = require('./app')(db)
 
 app.listen(port, (err) => {
     if(err) {

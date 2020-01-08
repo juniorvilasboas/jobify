@@ -2,11 +2,11 @@
     <h2>Open roles:</h2>
         <div>
             <% categorias.forEach( categoria => { %>
-                <h3><%- categoria.categoria %></h3>
+                <h3><%- categoria.description %></h3>
                 <ul>
                     <% categoria.vagas.forEach( vaga => { %>
                         <li>
-                            <a href="vagas/<%- vaga.id %>"><%- vaga.titulo %></a>
+                            <a href="vagas/<%- vaga.id %>"><%- vaga.title %></a>
                         </li>
                     <% } ) %>
                 </ul>

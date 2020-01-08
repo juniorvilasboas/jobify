@@ -1,14 +1,13 @@
-const init = dbConnection => {
+const init = db => {
     const router = require('express').Router()
 
     router.get('/', async(req, res) => {
-        const db = await dbConnection
-        const categoriasDb = await db.all('select * from categorias;')
-        const vagas = await db.all('select * from vagas;')
+        const categoriasDb = await db('categories').select('*')
+        const vagas = await db('vacancies').select('*')
         const categorias = categoriasDb.map(cat => {
             return {
                 ...cat,
-                vagas: vagas.filter( vagas => vagas.categoria === cat.id )
+                vagas: vagas.filter( vagas => vagas.category_id === cat.id )
             }
         })
     
@@ -18,9 +17,11 @@ const init = dbConnection => {
     })
 
     router.get('/vagas/:id', async(req, res) => {
-        const db = await dbConnection
-        const vaga = await db.get('select * from vagas where id = ' + req.params.id)
+        const vagas = await db('vacancies')
+                            .select('*')
+                            .where({ id: req.params.id })
     
+        vaga = vagas[0]
         res.render('vaga', {
             vaga
         })

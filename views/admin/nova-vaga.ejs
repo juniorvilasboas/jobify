@@ -6,18 +6,18 @@
     <div>
         <form method="POST">
             <div class="form-group">
-                <label for="titulo">Titulo</label>
-                <input type="text" class="form-control" id="titulo" placeholder="Titulo da vaga" name="titulo">
+                <label for="title">Titulo</label>
+                <input type="text" class="form-control" id="title" placeholder="Titulo da vaga" name="title">
             </div>
             <div class="form-group">
-                <label for="descricao">Descrição:</label>
-                <textarea class="form-control" id="descricao" rows="3" name="descricao"></textarea>
+                <label for="description">Descrição:</label>
+                <textarea class="form-control" id="description" rows="3" name="description"></textarea>
             </div>
             <div class="form-group">
-                <label for="categoria">Categoria:</label>
-                <select class="form-control" id="categoria" name="categoria">
+                <label for="category_id">Categoria:</label>
+                <select class="form-control" id="category_id" name="category_id">
                     <% categorias.forEach( categoria => { %>
-                        <option value="<%= categoria.id %>"><%= categoria.categoria %></option>
+                        <option value="<%= categoria.id %>"><%= categoria.description %></option>
                     <% }) %>
                 </select>
             </div>
