@@ -1,6 +1,12 @@
 const getVacancies = db => {
-    const vacancies = db('vacancies')
-                        .select('*')
+    const vacancies = db({vacancy: 'vacancies', category: 'categories'})
+                        .select({
+                            id          : 'vacancy.id',
+                            title       : 'vacancy.title',
+                            description : 'vacancy.description',
+                            category    : 'category.description'
+                        })
+                        .whereRaw( '?? = ??', ['category.id', 'vacancy.category_id'])
 
     return vacancies
 }
