@@ -1,13 +1,13 @@
 const init = db => {
     const router = require('express').Router()
-    const categoryController = require('../../controllers/categories')
+    const categoryController = require('../../controllers/categories')(db)
 
-    router.get('/', categoryController.getCategories(db))
-    router.get('/nova', categoryController.createForm)
-    router.post('/nova', categoryController.createProcess(db))    
-    router.get('/editar/:id', categoryController.editForm(db))    
-    router.post('/editar/:id', categoryController.editProcess(db))    
-    router.get('/delete/:id', categoryController.deleteOne(db))
+    router.get('/', categoryController.getCategories)
+    router.get('/nova', categoryController.createProcess)
+    router.post('/nova', categoryController.createProcess)    
+    router.get('/editar/:id', categoryController.editProcess)    
+    router.post('/editar/:id', categoryController.editProcess)    
+    router.get('/delete/:id', categoryController.deleteOne)
 
     return router
 }

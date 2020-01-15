@@ -1,7 +1,7 @@
 const init = db => {
     const router = require('express').Router()
-    const category = require('./categories')
-    const vacancie = require('./vacancies')
+    const category = require('./categories')(db)
+    const vacancie = require('./vacancies')(db)
     
     router.use((req, res, next) => {
         if (req.session.user) {
@@ -15,8 +15,8 @@ const init = db => {
         res.render('admin/home')
     })
 
-    router.use('/categorias', category(db))
-    router.use('/vagas', vacancie(db))
+    router.use('/categorias', category)
+    router.use('/vagas', vacancie)
 
     return router
 }

@@ -7,7 +7,10 @@
         <form method="POST">
             <div class="form-group">
                 <label for="description">Categoria</label>
-                <input type="text" class="form-control" id="description" placeholder="Titulo da categoria" name="description">
+                <input type="text" class="form-control <% if(errors.indexOf('description') >= 0) { %>is-invalid<% } %>" id="description" placeholder="Titulo da categoria" name="description">
+                <div class="invalid-feedback">
+                    Por favor, informe o titulo da categoria!
+                </div>
             </div>
             <div class="from-group">
                 <button class="btn btn-primary">Salvar categoria</button>

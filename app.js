@@ -25,9 +25,9 @@ const init = db => {
         next()
     })
     
-    const routes = require('./routes/index')
+    const routes = require('./routes/index')(db)
     
-    app.use(routes(db))
+    app.use(routes)
 
     return app
 }

@@ -7,11 +7,17 @@
         <form method="POST">
             <div class="form-group">
                 <label for="title">Titulo</label>
-                <input type="text" class="form-control" id="title" placeholder="Titulo da vaga" name="title">
+                <input type="text" class="form-control <% if(errors.indexOf('title') >= 0) { %>is-invalid<% } %>" id="title" placeholder="Titulo da vaga" name="title" value="<%- form.title %>">
+                <div class="invalid-feedback">
+                    Por favor, informe o titulo da vaga!
+                </div>
             </div>
             <div class="form-group">
                 <label for="description">Descrição:</label>
-                <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+                <textarea class="form-control <% if(errors.indexOf('description') >= 0) { %>is-invalid<% } %>" id="description" rows="3" name="description"><%- form.description %></textarea>
+                <div class="invalid-feedback">
+                    Por favor, informe a descrição da vaga!
+                </div>
             </div>
             <div class="form-group">
                 <label for="category_id">Categoria:</label>
