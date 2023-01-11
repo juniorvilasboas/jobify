@@ -22,7 +22,7 @@
     "ejs": "^2.7.3",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
-    "knex": "^0.20.7",
+    "knex": "^2.4.0",
     "mysql2": "^2.1.0"
   },
   "devDependencies": {
